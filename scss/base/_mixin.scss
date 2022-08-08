@@ -1,0 +1,12 @@
+@mixin borde ($color: black) { 
+    border: 3px solid $color;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+@mixin titulo ($color: black) {
+    color: $color;
+    font-family: 'Roboto', sans-serif;
+    font-size: xx-large;
+
+}

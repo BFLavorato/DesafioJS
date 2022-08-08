@@ -1,0 +1,39 @@
+
+.carrito {
+    @media (min-width:360px){display: flex;
+        justify-content: center;
+        padding: 15px 8px;
+        margin: 0% 30px 0% 30px;
+        background-color: goldenrod;
+        border:1ex solid white;
+        border-radius: 15px;}}
+.contenido { 
+    @media (min-width:360px){
+        a {color: black;}
+        padding-top: 200px;
+        padding-bottom: 200px;;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        border-radius: 15px;
+        background-color: #937d64;
+    }
+
+}
+.carteles {
+    @media (min-width:360px)
+    {display: flex;
+    flex-direction: column;
+    background-color: goldenrod;
+    border-radius: 15px;
+    p {border-top: 1ex solid white;}}
+    @media (min-width:1024px)
+    {display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border: 1ex solid white;
+        p {padding-top: 7px;
+            border-top: 0ch;}
+
+    }
+        
+}
