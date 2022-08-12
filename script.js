@@ -12,9 +12,9 @@ class Suscriptor {
 const suscriptores = []
 const form = document.getElementById("form")
 
-let modal = document.getElementById("myModal");
-let btn = document.getElementById("myBtn");
-let span = document.getElementsByClassName("close")[0];
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("myBtn");
+const span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
   modal.style.display = "none";
 }
@@ -25,8 +25,8 @@ window.onclick = function(event) {
 }
 
 function formCheck() {
-  let checkBox = document.getElementById("fCheck");
-  let text = document.getElementById("text");
+  const checkBox = document.getElementById("fCheck");
+  const text = document.getElementById("text");
   if (checkBox.checked == true) {
     text.style.display = "block";
   } else {
@@ -48,10 +48,12 @@ form.addEventListener(`submit`, (event) => {
     const suscriptor = new Suscriptor(nombre, apellido, email, comentario, rubro, pais, edad)
     suscriptores.push(suscriptor)
     console.log(suscriptores)
-    
+    localStorage.setItem(`suscriptor`,JSON.stringify(suscriptor.nombre))
   } else {btn.onclick = function() {
     modal.style.display = "block";
   }}
 
   form.reset()
 })
+
+console.log(("Bienvenido de nuevo"),JSON.parse(localStorage.getItem(`suscriptor`)))
