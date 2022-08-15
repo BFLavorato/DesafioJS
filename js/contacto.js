@@ -27,11 +27,7 @@ window.onclick = function(event) {
 function formCheck() {
   const checkBox = document.getElementById("fCheck");
   const text = document.getElementById("text");
-  if (checkBox.checked == true) {
-    text.style.display = "block";
-  } else {
-    text.style.display = "none";
-  }
+(checkBox.checked == true) ? text.style.display = "block" : text.style.display = "none" 
 }
 
 form.addEventListener(`submit`, (event) => {
