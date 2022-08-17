@@ -12,23 +12,6 @@ class Suscriptor {
 const suscriptores = []
 const form = document.getElementById("form")
 
-const modal = document.getElementById("myModal");
-const btn = document.getElementById("myBtn");
-const span = document.getElementsByClassName("close")[0];
-span.onclick = function() {
-  modal.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-function formCheck() {
-  const checkBox = document.getElementById("fCheck");
-  const text = document.getElementById("text");
-(checkBox.checked == true) ? text.style.display = "block" : text.style.display = "none" 
-}
 
 form.addEventListener(`submit`, (event) => {
   event.preventDefault()
@@ -40,16 +23,40 @@ form.addEventListener(`submit`, (event) => {
   let pais = document.getElementById("pais").value
   let edad = document.getElementById("edad").value
   if (fCheck.checked == true) {
-    btn.onclick = function() {modal.style.display = "none";}
+
+    Toastify({
+      text: "Bienvenido a la familia Mecenas :) \n Gracias por tu critica.",
+      duration: 1500,
+      close: true,
+      gravity: "top",
+      position: "right",
+      stopOnFocus: true,
+      style: {
+        background: "linear-gradient(to top, #757519, #CCCCB2)",
+      },
+      onClick: function () {}
+    }).showToast();
     const suscriptor = new Suscriptor(nombre, apellido, email, comentario, rubro, pais, edad)
     suscriptores.push(suscriptor)
     console.log(suscriptores)
-    localStorage.setItem(`suscriptor`,JSON.stringify(suscriptor.nombre))
-  } else {btn.onclick = function() {
-    modal.style.display = "block";
-  }}
+    localStorage.setItem(`suscriptor`, JSON.stringify(suscriptor.nombre))
+  } else {
+    Toastify({
+      text: "Gracias por tu critica.",
+      duration: 500,
+      close: true,
+      gravity: "top",
+      position: "right",
+      stopOnFocus: true,
+      style: {
+        background: "linear-gradient(to top, #757519, #CCCCB2)",
+      },
+      onClick: function () {}
+    }).showToast();
+  }
 
   form.reset()
 })
 
-console.log(("Bienvenido de nuevo"),JSON.parse(localStorage.getItem(`suscriptor`)))
+
+console.log(("Bienvenido de nuevo"), JSON.parse(localStorage.getItem(`suscriptor`)))
